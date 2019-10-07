@@ -8,31 +8,35 @@ filtrados se guardan en otro archivo de texto
 separado por comas.
 */
 
-class Create
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Delete
 {
     static void Main(string[] args)
-    {		
-		String[] text = File.ReadAllLines("C:\\users\\alumno\\ver.txt");
+    {
+        String[] text = File.ReadAllLines("C:\\users\\Reconquista\\ver.txt");
 
-		Stack<string> resultado = new Stack<string>();
-		String producto;
-		int cantidad;
-		String estado;
-		foreach(var line in text)
-		{
-			var campos = line.Split(',');
-			producto = campos[0];
-			cantidad = Int32.Parse(campos[1]);
-			estado = campos[2];
-			
-			if(cantidad < -20)
-			{
-			   resultado.Push(line);
-			}
-			
-		}
-		String[] arr = resultado.ToArray(); 
+        Stack<string> resultado = new Stack<string>();
+        String producto;
+        int cantidad;
+        String estado;
+        foreach (var line in text)
+        {
+            var campos = line.Split(',');
+            producto = campos[0];
+            cantidad = Int32.Parse(campos[1]);
+            estado = campos[2];
 
-		System.IO.File.WriteAllLines("C:\\users\\alumno\\ver.txt", arr.ToArray());
-	}
+            if (cantidad < -20)
+            {
+                resultado.Push(line);
+            }
+
+        }
+        String[] arr = resultado.ToArray();
+
+        System.IO.File.WriteAllLines("C:\\users\\Reconquista\\ver.txt", arr);
+    }
 }
