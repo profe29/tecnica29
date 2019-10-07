@@ -3,18 +3,18 @@ Carga un archivo en un array de String, recorre
 el array y separa en campos cada string, 
 (los campos estan separados por comas).
 Se filtran los archivos de acuerdo al valor
-del segundo campo (columna), se actualiza ese
-valor, y los registros filtrados se guardan en 
-otro archivo de texto separado por comas.
+del segundo campo (columna) y se actualiza ese
+valor.
 */
+using System;
+using System.IO;
+using System.Collections.Generic;
 
-class Create
+class Update
 {
     static void Main(string[] args)
     {		
-		String[] text = File.ReadAllLines("C:\\users\\alumno\\ver.txt");
-
-		//Stack<string> resultado = new Stack<string>();
+		String[] text = File.ReadAllLines("C:\\Users\\Reconquista\\ver.txt");
 		Queue<string> resultado = new Queue<string>();
 		String producto;
 		int cantidad;
@@ -42,11 +42,8 @@ class Create
 			
 		}
 
+		String[] arr = resultado.ToArray();
 
-
-		String[] arr = resultado.ToArray(); 
-
-		System.IO.File.WriteAllLines("C:\\users\\alumno\\ver.txt", arr.ToArray());
-		
+        System.IO.File.WriteAllLines("C:\\Users\\Reconquista\\ver.txt", arr);
 	}
 }
